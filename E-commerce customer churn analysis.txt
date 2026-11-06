@@ -1,0 +1,163 @@
+PROJECT Alogirthm
+
+1. **Created Project Folders:**
+You made a main folder named `e-commerce customer churn` on your Desktop, and put 4 subfolders inside it (`data`, `notebook`, `sql query`, `dashboard`) to keep everything neat and organized.
+
+2. **Saved the Data File:**
+You downloaded the customer churn file from Kaggle and placed it inside your `data` folder.
+
+3. **Opened Command Prompt (`cmd`):**
+You opened the Windows Command Prompt, which is a text-based window where you can type direct commands to your computer instead of using your mouse.
+
+4. **Pointed Command Prompt to Your Folder (`cd`):**
+You typed `cd "OneDrive\Desktop\e-commerce customer churn"` to tell your computer: *"Walk inside my project folder right now!"*
+
+5. **Started Jupyter (`python -m notebook`):**
+You typed `python -m notebook`, telling Python to wake up the Jupyter app and use your project folder as its starting home base.
+
+6. **Opened the Screen in Chrome:**
+Jupyter started up silently and opened Chrome automatically, showing all your project folders (`data`, `notebook`, `sql query`, `dashboard`) right on your web browser screen!
+
+7. **Opened the notebook Folder:**
+In Chrome, you clicked on the notebook folder so all your code files get saved right inside it, keeping them separate from your raw data.
+
+__________________________________________________________________________________________________
+FIRST CODE ;
+
+  import duckdb
+
+  df_raw = duckdb.query("""
+      SELECT * 
+      FROM read_excel('../data/data_ecommerce_customer_churn.xlsx')
+  """).df()
+
+ THIS ABOVE CODE THROWED ERROR BECAUSE :
+-FILE LOCATION IS WRONG
+-AND IT IS NOT AN EXCEL FILE.
+-------------------------------------------------------------------------------
+ import duckdb
+
+- duckdb is a Python library.
+- It allows us to work with databases and perform SQL queries.
+- We can use SQL commands such as SELECT, WHERE, GROUP BY, etc., directly in Python.
+
+-------------------------------------------------------------------------------
+ A. duckdb.query()
+
+  This tells DuckDB to execute an SQL query.
+
+ B. SELECT *
+ - SELECT means retrieve data.
+ - * means retrieve all columns.
+ So, it selects all columns from the Excel file.
+
+C.read excel()
+
+ -FROM read_excel('../data/data_ecommerce_customer_churn.xlsx')
+This tells duck db to read excel file
+
+ D. .df()
+
+-This converts the result of the SQL query into a Pandas DataFrame.
+
+ E. df_raw =
+
+-This stores the resulting DataFrame in a variable called df_raw
+
+F. ('../data/data_ecommerce_customer_churn.xlsx')-This file path is wrong because the file is inside the archive subfolder of data folder.
+So the corrected file path is -  ('../data/archive/data_ecommerce_customer_churn.xlsx')
+-------------------------------------------------------------------------------------
+import os
+
+# Check current working directory
+print("Current Directory:", os.getcwd())
+
+# List contents of parent and data directories
+print("\nFiles in parent directory (..):", os.listdir('..'))
+if os.path.exists('../data'):
+    print("Files inside '../data':", os.listdir('../data'))
+-------------------------------------------------------------------------------------
+- os.getcwd() → Finds the folder where Python is currently working.
+- os.listdir() → Lists files and folders.
+- os.path.exists() → Checks whether a file or folder exists.
+- os.mkdir() → Creates a new folder.
+One small correction: OS is not limited to finding folder details. It can also create, rename and delete folders and work with files.
+
+-'..' represents the parent directory (one level above the current working directory).
+ {-'../data' mean?
+It has two parts:
+- .. → Go one folder backwards (parent directory).
+- data → Look for a folder named data.}
+-----------------------------------------------------------------------------------
+import os
+
+print("Everything inside '../data':")
+for root, dirs, files in os.walk('../data'):
+    print(f"Directory: {root}")
+    print(f"  Folders: {dirs}")
+    print(f"  Files: {files}\n")
+----------------------------------------------------------------------------------
+root  -	The name/path of the directory currently being visited.
+dirs  -	List of folders inside that directory.
+files -	List of files inside that directory.
+
+----------------------------------------------------------------------------------
+*****So far, we have written code to import DuckDB and load and read the dataset. However, we encountered an error because the file location and file format we specified were incorrect.
+
+To investigate the issue, we imported the os module to find the current working directory of our Python code.
+
+Finally, we used os.walk() to explore the directory and get details about its folders and files.*****
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Think
+
+
