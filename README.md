@@ -99,5 +99,5 @@ The dashboard went through several revisions to make it usable for a non-technic
 
 1.Clone the repository:
    ```bash
-   git clone
+   
  https://github.com/priyadharshinir-2006/ecommerce-customer-churn-analysis.git
